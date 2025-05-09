@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Thomas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Abhirami Puzhakkal🌸</h1>
+            <div class="message">
+                <p>Hai Abhirami! 🌸<br>
+                You're absolutely awesome!</p>
+                <button class="heart-btn" onclick="revealMessage()">Click Magic</button>
+                <div id="secretMessage" class="hidden-message">
+                    <p>You're doing amazing things<br> 
+                        with your work and studies! ✨<br><br>
+                        
+                        Remember: Small steps every day<br>
+                        create big successes Abhirami ! 🚀</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hearts" id="heartsContainer"></div>
+
+    <script>
+        function revealMessage() {
+            document.getElementById('secretMessage').style.display = 'block';
+            startHeartLoop();
+        }
+    
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animation = `float 3s linear infinite`;
+            container.appendChild(heart);
+    
+            setTimeout(() => heart.remove(), 3000);
+        }
+    
+        function startHeartLoop() {
+            const heartInterval = setInterval(createHearts, 300);
+        }
+    
+        setTimeout(() => {
+            document.querySelector('.hero').style.opacity = 1;
+        }, 500);
+    </script>
+</body>
+</html>
